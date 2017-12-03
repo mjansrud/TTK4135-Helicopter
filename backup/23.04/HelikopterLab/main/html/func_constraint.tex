@@ -1,0 +1,48 @@
+
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and republish this document.
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+    
+    \begin{verbatim}
+function [ c, ceq ] = func_constraint( z )
+%FUNC_CONSTRAINT Summary of this function goes here
+%   Detailed explanation goes here
+global N mx
+
+alpha = 0.2;
+beta = 20;
+lambda_t = (2*pi)/3;
+
+c_temp = -Inf(N,1);
+lambda_i = z(1:mx:N*mx);
+ek = z(5:mx:N*mx);
+
+for n = 1:N
+    c_temp(n) = alpha*exp(-beta*(lambda_i(n)-lambda_t)^2) - ek(n);
+end
+ceq = [];
+c = c_temp;
+
+end
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}Not enough input arguments.
+
+Error in func_constraint (line 11)
+lambda_i = z(1:mx:N*mx);
+\end{verbatim} \color{black}
+    
+
+
+\end{document}
+    
